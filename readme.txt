@@ -1,6 +1,6 @@
 === Bootstrap Shortcodes for WordPress ===
 Contributors: FoolsRun
-Tags: bootstrap, shortcode
+Tags: bootstrap, bootstrap 3, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
 Stable tag: 3.0.3
