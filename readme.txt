@@ -7,7 +7,7 @@ Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Implements Bootstrap 3 styles components in WordPress through shortcodes.
+Implements Bootstrap 3 styles and components in WordPress through shortcodes.
 
 == Description ==
 
