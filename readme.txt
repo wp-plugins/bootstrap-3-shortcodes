@@ -7,16 +7,16 @@ Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Implements Bootstrap 3 components in WordPress.
+Implements Bootstrap 3 styles components in WordPress through shortcodes.
 
 == Description ==
 
-#Just The Shortcodes, Please
+##Just The Shortcodes, Please
 Plenty of great WordPress plugins focus on providing or including the Bootstrap library into your site. **Bootstrap Shortcodes for WordPress** assumes you're working with a theme that already includes Bootstrap 3 and focuses on giving you a great set of shortcodes to use it with.
 
 This plugin creates a simple, out of the way button just above the WordPress TinyMCE editor (next to the "Add Media" button) which pops up the plugin's documentation and shortcode examples for reference and handy "Insert Example" links to send the example code straight to the editor. There are no additional TinyMCE buttons to clutter up your screen, just great, easy to use shortcodes!
 
-#Supported Shortcodes
+##Supported Shortcodes
 ###CSS
 * Grid (fully responsive)
 * Lead body copy
@@ -45,11 +45,6 @@ This plugin creates a simple, out of the way button just above the WordPress Tin
 * Modal
 
 == Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
-
 1. Download and unzip this plugin
 1. Upload the "bootstrap-3-shortcodes" folder to your site's `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
