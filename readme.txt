@@ -1,5 +1,5 @@
 === Bootstrap Shortcodes for WordPress ===
-Contributors: FoolsRun
+Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, bootstrap 3, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
@@ -15,6 +15,8 @@ Implements Bootstrap 3 styles and components in WordPress through shortcodes.
 Plenty of great WordPress plugins focus on providing or including the Bootstrap library into your site. **Bootstrap Shortcodes for WordPress** assumes you're working with a theme that already includes Bootstrap 3 and focuses on giving you a great set of shortcodes to use it with.
 
 This plugin creates a simple, out of the way button just above the WordPress TinyMCE editor (next to the "Add Media" button) which pops up the plugin's documentation and shortcode examples for reference and handy "Insert Example" links to send the example shortcodes straight to the editor. There are no additional TinyMCE buttons to clutter up your screen, just great, easy to use shortcodes!
+
+If you like this plugin, check out our companion plugin for Font Awesome, [Font Awesome Shortcodes](http://www.wordpress.org/plugins/font-awesome-shortcodes/)
 
 ###Supported Shortcodes
 ####CSS
