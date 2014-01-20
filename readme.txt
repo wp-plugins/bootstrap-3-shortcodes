@@ -3,7 +3,7 @@ Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 3.0.3.1
+Stable tag: 3.0.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,9 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 No, we assume you are already working with a WordPress theme that includes the Bootstrap libraries.
 
 == Changelog ==
+
+= 3.0.3.2 =
+* Fix help tab popup on edit pages
 
 = 3.0.3.1 =
 * Change help-tab to inline rather than iframe in to meet WordPress.org submission requirements
