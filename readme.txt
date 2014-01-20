@@ -3,7 +3,7 @@ Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 3.0.3
+Stable tag: 3.0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,3 +57,21 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 = Does this plugin include Bootstrap 3? =
 
 No, we assume you are already working with a WordPress theme that includes the Bootstrap libraries.
+
+== Changelog ==
+
+= 3.0.3.1 =
+* Change help-tab to inline rather than iframe in to meet WordPress.org submission requirements
+* Add support for images (http://getbootstrap.com/css/#images)
+* Add support for progress bars (http://getbootstrap.com/components/#progress)
+* Add support for page header (http://getbootstrap.com/components/#page-header
+* Improve list groups, add support for linked items and custom content (http://getbootstrap.com/components/#list-group)
+* Add support for button dropdowns (http://getbootstrap.com/components/#btn-dropdowns)
+* Add support for breadcrumbs (http://getbootstrap.com/components/#breadcrumbs)
+* Add support for button-toolbar in button groups (http://getbootstrap.com/components/#btn-groups-toolbar)
+* Add support for navs (http://getbootstrap.com/components/#nav)
+* Remove "strong" parameter from alerts --this should be handled in the wrapped content
+* Allow arbitrary classes in columns
+
+= 3.0.3 =
+* Initial WordPress.org release
