@@ -20,21 +20,26 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 
 ###Supported Shortcodes
 ####CSS
-* Grid (fully responsive)
+* Grid
 * Lead body copy
 * Emphasis classes
 * Code
 * Tables
 * Buttons
+* Images
 * Responsive utilities
 ####Components
-* Icons
 * Button Groups
+* Button Dropdowns
+* Navs
+* Breadcrumbs
 * Labels
 * Badges
 * Jumbotron
+* Page Header
 * Thumbnails
 * Alerts
+* Progress Bars
 * Media Objects
 * List Groups
 * Panels
