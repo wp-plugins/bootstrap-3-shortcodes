@@ -3,7 +3,7 @@ Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 3.0.3.2
+Stable tag: 3.0.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,11 +16,13 @@ Plenty of great WordPress plugins focus on providing or including the Bootstrap 
 
 This plugin creates a simple, out of the way button just above the WordPress TinyMCE editor (next to the "Add Media" button) which pops up the plugin's documentation and shortcode examples for reference and handy "Insert Example" links to send the example shortcodes straight to the editor. There are no additional TinyMCE buttons to clutter up your screen, just great, easy to use shortcodes!
 
+For questions, support, or to contribute to this plugin, check out [our GitHub project](https://github.com/filipstefansson/bootstrap-3-shortcodes)
+
 If you like this plugin, check out our companion plugin for Font Awesome, [Font Awesome Shortcodes](http://www.wordpress.org/plugins/font-awesome-shortcodes/)
 
 ###Supported Shortcodes
 ####CSS
-* Grid
+* Grid (container, row, columns, fully responsive)
 * Lead body copy
 * Emphasis classes
 * Code
@@ -49,6 +51,7 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 * Tooltip
 * Popover
 * Collapse (Accordion)
+* Carousel
 * Modal
 
 == Installation ==
@@ -64,6 +67,12 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 No, we assume you are already working with a WordPress theme that includes the Bootstrap libraries.
 
 == Changelog ==
+
+= 3.0.3.5 =
+* Add support for [container] shortcode for themes without a container defined
+* Add support for [carousel] and [carousel-item] shortcodes
+* Add support for "xclass" and "data" parameters to all shortcodes
+* Plenty of bugfixes and code cleanup to fix common issues
 
 = 3.0.3.2 =
 * Fix help tab popup on edit pages
