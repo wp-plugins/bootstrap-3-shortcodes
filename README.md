@@ -8,6 +8,8 @@ This plugin won't do anything if you don't have WordPress theme built with the [
 
 The plugin is tested to work with ```Bootstrap 3``` and ```WordPress 3.8```.
 
+This plugin contains a ```composer.json``` file for those of you who manage your PHP dependencies with [Composer](https://getcomposer.org).
+
 ## Supported shortcodes
 
 ### CSS
@@ -42,7 +44,7 @@ The plugin is tested to work with ```Bootstrap 3``` and ```WordPress 3.8```.
 * [Tabs](#tabs)
 * [Tooltip](#tooltip)
 * [Popover](#popover)
-* [Collapse (Accordion)](#collapse-(accordion))
+* [Collapse (Accordion)](#collapse-accordion)
 * [Carousel](#carousel)
 * [Modal](#modal)
 
@@ -77,6 +79,7 @@ The container component is also supported in case your theme doesn't incude a co
 #### [container] parameters
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
+fluid | Is the container fluid? (see Bootstrap documentation for details) | optional | true, false | false
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
 
@@ -175,6 +178,8 @@ type | The type of the button | optional | default, primary, success, info, warn
 size | The size of the button | optional | xs, sm, lg | none
 block | Whether the button should be a block-level button | optional | true, false | false
 dropdown | Whether the button triggers a dropdown menu (see [Button Dropdowns](#button-dropdowns)) | optional | true, false | false
+active | Apply the "active" style | optional | true, false | false
+disabled | Whether the button be disabled | optional | true, false | false
 xclass | Any extra classes you want to add | optional | any text | none
 link | The url you want the button to link to | optional | any valid link | none
 target | Target for the link | optional | any valid target | none
@@ -273,6 +278,9 @@ Button Dropdowns can be accomplished by combining the [button-group] shortcode, 
     [button-group]
         [button link="#" dropdown="true" data="toggle,dropdown"] … [caret][/button]
         [dropdown]
+            [dropdown-header] … [/dropdown-header]
+            [dropdown-item link="#"] … [/dropdown-item]
+            [dropdown-item link="#"] … [/dropdown-item]
             [dropdown-item link="#"] … [/dropdown-item]
             [divider]
             [dropdown-item link="#"] … [/dropdown-item]
@@ -311,6 +319,13 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
 link | The url you want the dropdown-item to link to | optional | any valid link | none
+disabled | Whether this menu-item is disabled | optional | true, false | false
+xclass | Any extra classes you want to add | optional | any text | none
+data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
+
+#### [dropdown-header] parameters
+Parameter | Description | Required | Values | Default
+--- | --- | --- | --- | ---
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
 
@@ -481,6 +496,7 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
 percent | The percentage amount to show in the progress bar | required | any number between 0 and 100 | false
+label | Whether to show the percentage as a text label inside the bar | optional | true, false | false
 type | The type of the progress bar | optional | default, primary, success, info, warning, danger  | default
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
@@ -577,6 +593,7 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
 link | The url you want the list item to link to **Must correspond with the "linked" parameter in [list-group]** | optional | any text | false
+type | The type of the list-group-item | optional | primary, success, info, warning, danger, link | none
 active | Whether the item has the "active" style applied | optional | true, false | false
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
@@ -596,13 +613,14 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 [Bootstrap list groups documentation](http://getbootstrap.com/components/#list-group)
 
 ### Panels
-	[panel type="info" title="Panel Title" footer="Footer text"] … [/panel]
+	[panel type="info" heading="Panel Title" footer="Footer text"] … [/panel]
 
 #### [panel] parameters
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
 type | The type of the panel | optional | default, primary, success, info, warning, danger, link | default
-title | The panel title | required | any text | none
+heading | The panel heading | optional | any text | none
+title | Whether the panel heading should have a title tag around it | optional | true, false | false
 footer | The panel footer text if desired | optional | any text | none
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
@@ -624,8 +642,8 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 ## Javascript
 
 ### Tabs
-	[tabs]
-	  [tab title="Home"]
+	[tabs type="tabs"]
+	  [tab title="Home" active="true"]
 	    …
 	  [/tab]
 	  [tab title="Profile"]
@@ -639,6 +657,7 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 #### [tabs] parameters
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
+type | The type of nav | required | tabs, pills | tabs
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
 
@@ -646,6 +665,8 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
 title | The title of the tab | required | any text | false
+active | Whether this tab should be "active" or selected | optional | true, false | false
+fade | Whether to use the "fade" effect when showing this tab | optional | true, false | false
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
 
@@ -710,7 +731,7 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 
 ### Carousel
 	[carousel]
-        [carousel-item] … [/carousel-item]
+        [carousel-item active="true"] … [/carousel-item]
         [carousel-item] … [/carousel-item]
         [carousel-item] … [/carousel-item]
 	[/carousel]
@@ -727,6 +748,7 @@ data | Data attribute and value pairs separated by a comma. Pairs separated by p
 #### [carousel-item] parameters
 Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
+active | Whether the item has the "active" style applied. One item MUST be set as active. | optional | true, false | false
 caption | This carousel slide's caption | optional | Any text | none
 xclass | Any extra classes you want to add | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
@@ -747,6 +769,7 @@ Parameter | Description | Required | Values | Default
 --- | --- | --- | --- | ---
 text | Text of the modal trigger link | required | any text  | none
 title | Title of the modal popup | required | any text | none
+size | Optional modal size | optional | lg, sm | none
 xclass | Any extra classes you want to add to the trigger link | optional | any text | none
 data | Data attribute and value pairs separated by a comma. Pairs separated by pipe (see example at [Button Dropdowns](#button-dropdowns)). | optional | any text | none
 

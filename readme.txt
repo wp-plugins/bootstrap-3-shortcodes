@@ -3,7 +3,7 @@ Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 3.0.3.5
+Stable tag: 3.0.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,22 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 No, we assume you are already working with a WordPress theme that includes the Bootstrap libraries.
 
 == Changelog ==
+
+= 3.0.3.6 =
+* Significant rewrite to properly escape inputs
+* Tabs now supports "pills" and "fade" styles
+* Tabs and Carousel now support setting a tab or image other than the first one as "active". If no tab or carousel item is set to "active" the first one is set by default.
+* Panel titles are now optional (see documentation for new shortcode parameters)
+* List Group Item now supports optional "type" parameter (Bootstrap 3.1 only)
+* Buttons now support "disabled" and "active" parameters
+* Progress bars now support labels
+* Add Dropdown Header shortcode
+* Containers now include optional "fluid" parameter (Bootstrap 3.1 only)
+* Add support for modal sizes (Bootstrap 3.1 only)
+* Composer support
+* Resolve errors regarding uninitialized variables experienced by some users
+* Resolve image path icons for non-standard WordPress directory names
+* Resolved DOMDocument errors experienced by some users (if you still see these errors or warnings please let us know)
 
 = 3.0.3.5 =
 * Add support for [container] shortcode for themes without a container defined
