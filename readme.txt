@@ -70,15 +70,15 @@ No, we assume you are already working with a WordPress theme that includes the B
 
 = 3.0.3.6 =
 * Significant rewrite to properly escape inputs
-* Tabs now supports "pills" and "fade" styles
-* Tabs and Carousel now support setting a tab or image other than the first one as "active". If no tab or carousel item is set to "active" the first one is set by default.
-* Panel titles are now optional (see documentation for new shortcode parameters)
-* List Group Item now supports optional "type" parameter (Bootstrap 3.1 only)
-* Buttons now support "disabled" and "active" parameters
-* Progress bars now support labels
-* Add Dropdown Header shortcode
-* Containers now include optional "fluid" parameter (Bootstrap 3.1 only)
-* Add support for modal sizes (Bootstrap 3.1 only)
+* [tabs] now supports "pills" and "fade" styles
+* [tabs] and [carousel] now support setting a tab or image other than the first one as "active". If no tab or carousel item is set to "active" the first one is set by default.
+* [panel] titles are now optional (see documentation for new shortcode parameters)
+* [list-group-item] now supports optional "type" parameter (Bootstrap 3.1 only)
+* [button] now supports "disabled" and "active" parameters
+* [progress-bar] now supports showing labels
+* Add [dropdown-header] shortcode
+* [container] now includes optional "fluid" parameter (Bootstrap 3.1 only)
+* [modal] now supports sizes (Bootstrap 3.1 only)
 * Composer support
 * Resolve errors regarding uninitialized variables experienced by some users
 * Resolve image path icons for non-standard WordPress directory names
