@@ -3,7 +3,7 @@ Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 3.0.3.6
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,12 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 No, we assume you are already working with a WordPress theme that includes the Bootstrap libraries.
 
 == Changelog ==
+
+= 3.1.1 =
+* Support new parameters introduced in Bootstrap 3.1.x
+* Use custom icon-font for editor button
+* Fix bug which broke Distraction Free Editing in WordPress
+* Fix bug which caused [responsive] shortcodes not to work
 
 = 3.0.3.6 =
 * Significant rewrite to properly escape inputs

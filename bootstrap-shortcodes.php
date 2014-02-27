@@ -3,7 +3,7 @@
 Plugin Name: Bootstrap 3 Shortcodes
 Plugin URI: http://wp-snippets.com/freebies/bootstrap-shortcodes or https://github.com/filipstefansson/bootstrap-shortcodes
 Description: The plugin adds a shortcodes for all Bootstrap elements.
-Version: 3.0.3.6
+Version: 3.1.0
 Author: Filip Stefansson, Simon Yeldon, and Michael W. Delaney
 Author URI: 
 License: GPL2
@@ -310,7 +310,7 @@ class BoostrapShortcodes {
     $data_props = $this->parse_data_attributes( $data );
       
     return sprintf( 
-      '<ul role="menu" class="%s"%s role="menu">%s</ul>',
+      '<ul role="menu" class="%s"%s>%s</ul>',
       esc_attr( $class ),
       ( $data_props ) ? ' ' . $data_props : '',
       do_shortcode( $content )
@@ -1863,7 +1863,7 @@ function bs_popover( $atts, $content = null ) {
     if( $hidden ) {
       $hidden = explode( ' ', $hidden );
       foreach( $hidden as $h ):
-        $classes .= "hidden-$h ";
+        $class .= "hidden-$h ";
       endforeach;
     }
     $class .= ( $xclass ) ? ' ' . $xclass : '';
