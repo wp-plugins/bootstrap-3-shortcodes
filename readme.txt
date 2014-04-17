@@ -2,8 +2,8 @@
 Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
-Tested up to: 3.8
-Stable tag: 3.1.1
+Tested up to: 3.9
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,13 @@ If you like this plugin, check out our companion plugin for Font Awesome, [Font 
 No, we assume you are already working with a WordPress theme that includes the Bootstrap libraries.
 
 == Changelog ==
+
+= 3.1.2 =
+* Tested to work in WordPress 3.9
+* Fix and document collapsibles "Active" state
+* Fix uninitialized variables causing errors in debug mode
+* Fix "Active" tab, carousel checking, should work better now
+* Fix media button icon in Internet Explorer
 
 = 3.1.1 =
 * Support new parameters introduced in Bootstrap 3.1.x
