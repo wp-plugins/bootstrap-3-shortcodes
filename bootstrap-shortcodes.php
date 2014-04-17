@@ -3,7 +3,7 @@
 Plugin Name: Bootstrap 3 Shortcodes
 Plugin URI: http://wp-snippets.com/freebies/bootstrap-shortcodes or https://github.com/filipstefansson/bootstrap-shortcodes
 Description: The plugin adds a shortcodes for all Bootstrap elements.
-Version: 3.1.0
+Version: 3.1.2
 Author: Filip Stefansson, Simon Yeldon, and Michael W. Delaney
 Author URI: 
 License: GPL2
@@ -389,11 +389,11 @@ class BoostrapShortcodes {
       
     extract( shortcode_atts( array(
         "xclass" => false,
-        "data" => false
+        "data"   => false
      ), $atts ) );
 
     $class  = 'dropdown-header';      
-    $class .= ( $xclass )   ? ' ' . $xclass : '';
+    $class .= ( $xclass ) ? ' ' . $xclass : '';
 
     $data_props = $this->parse_data_attributes( $data );
       
@@ -535,8 +535,8 @@ class BoostrapShortcodes {
       
     $class  = 'progress';
     $class .= ( $striped )  ? ' progress-striped' : '';
-    $class .= ( $animated )  ? ' active' : '';
-    $class .= ( $xclass )       ? ' ' . $xclass : '';
+    $class .= ( $animated ) ? ' active' : '';
+    $class .= ( $xclass )   ? ' ' . $xclass : '';
     
     $data_props = $this->parse_data_attributes( $data );
       
@@ -565,8 +565,8 @@ class BoostrapShortcodes {
      ), $atts ) );
       
     $class  = 'progress-bar';
-    $class .= ( $type )  ? ' progress-bar-' . $type : '';
-    $class .= ( $xclass )       ? ' ' . $xclass : '';
+    $class .= ( $type )   ? ' progress-bar-' . $type : '';
+    $class .= ( $xclass ) ? ' ' . $xclass : '';
     
     $data_props = $this->parse_data_attributes( $data );
       
@@ -875,6 +875,8 @@ class BoostrapShortcodes {
 
     $class  = '';      
     $class .= ( $xclass )   ? ' ' . $xclass : '';
+
+    $data_props = $this->parse_data_attributes( $data );
 
     return sprintf( 
       '<li><a href="%s" class="%s"%s>%s</a></li>',
@@ -1186,16 +1188,15 @@ class BoostrapShortcodes {
       $tabs = array();
       $GLOBALS['tabs_default_active'] = true;
       foreach( $atts_map as $check ) {
-          if( $check["tab"]["active"] ) {
+          if( !empty($check["tab"]["active"]) ) {
               $GLOBALS['tabs_default_active'] = false;
           }
       }
       $i = 0;
       foreach( $atts_map as $tab ) {
-
         $tabs[] = sprintf(
           '<li%s><a href="#%s" data-toggle="tab">%s</a></li>',
-          ( ($tab["tab"]["active"]) || ($GLOBALS['tabs_default_active'] && $i == 0) ) ? ' class="active"' : '',
+          ( !empty($tab["tab"]["active"]) || ($GLOBALS['tabs_default_active'] && $i == 0) ) ? ' class="active"' : '',
           'custom-tab-' . $GLOBALS['tabs_count'] . '-' . sanitize_title( $tab["tab"]["title"] ),
           $tab["tab"]["title"]
         );
@@ -1318,8 +1319,8 @@ class BoostrapShortcodes {
     $panel_class .= ( $type )     ? ' panel-' . $type : ' panel-default';
     $panel_class .= ( $xclass )   ? ' ' . $xclass : '';
       
-    $collapse_class = 'panel-collapse collapse';
-    $collapse_class .= ( $active )  ? ' in' . $type : '';
+    $collapse_class = 'panel-collapse';
+    $collapse_class .= ( $active )  ? ' in' : ' collapse';
 
     $parent = 'custom-collapse-'. $GLOBALS['collapsibles_count'];
     $current_collapse = $parent . '-'. sanitize_title( $title );
@@ -1352,7 +1353,6 @@ class BoostrapShortcodes {
     *
     * bs_carousel
     *
-    * @author Filip Stefansson
     * @since 1.0
     *
     *-------------------------------------------------------------------------------------*/
@@ -1363,7 +1363,7 @@ class BoostrapShortcodes {
     else
       $GLOBALS['carousel_count'] = 0;
 
-    $GLOBALS['tabs_default_count'] = 0;
+    $GLOBALS['carousel_default_count'] = 0;
 
     extract( shortcode_atts( array(
       "interval" => false,
@@ -1384,21 +1384,20 @@ class BoostrapShortcodes {
 
     $atts_map = bs_attribute_map( $content );
     
-    // Extract the tab titles for use in the tab widget.
+    // Extract the slide titles for use in the carousel widget.
     if ( $atts_map ) {
       $indicators = array();
       $GLOBALS['carousel_default_active'] = true;
       foreach( $atts_map as $check ) {
-        if( $check["carousel-item"]["active"] ) {
+        if( !empty($check["carousel-item"]["active"]) ) {
           $GLOBALS['carousel_default_active'] = false;
-        }
+        } 
       }
-      // Extract the tab titles for use in the tab widget.
       $i = 0;
       foreach( $atts_map as $slide ) {
         $indicators[] = sprintf(
           '<li class="%s" data-target="%s" data-slide-to="%s"></li>',
-          ( ($slide["carousel-item"]["active"]) || ($GLOBALS['carousel_default_active'] && $i == 0) ) ? 'active' : '',
+          ( !empty($slide["carousel-item"]["active"]) || ($GLOBALS['carousel_default_active'] && $i == 0) ) ? 'active' : '',
           esc_attr( '#' . $id ),
           esc_attr( '#' . $i )
         );
@@ -1409,9 +1408,9 @@ class BoostrapShortcodes {
       '<div class="%s" id="%s" data-ride="carousel"%s%s%s%s>%s<div class="%s">%s</div>%s%s</div>',
       esc_attr( $div_class ),
       esc_attr( $id ),
-      ( $interval ) ? sprintf( ' data-interval="%"', (int) $interval ) : '',
-      ( $pause )    ? sprintf( ' data-pause="%"', esc_attr( $pause ) ) : '',
-      ( $wrap )     ? sprintf( ' data-wrap="%"', esc_attr( $wrap ) ) : '',
+      ( $interval )   ? sprintf( ' data-interval="%d"', $interval ) : '',
+      ( $pause )      ? sprintf( ' data-pause="%s"', esc_attr( $pause ) ) : '',
+      ( $wrap )       ? sprintf( ' data-wrap="%s"', esc_attr( $wrap ) ) : '',
       ( $data_props ) ? ' ' . $data_props : '',
       ( $indicators ) ? '<ol class="carousel-indicators">' . implode( $indicators ) . '</ol>' : '',
       esc_attr( $inner_class ),
@@ -1782,16 +1781,16 @@ function bs_popover( $atts, $content = null ) {
 
     $previous_value = libxml_use_internal_errors(TRUE);
     $dom = new DOMDocument;
-    $dom->loadXML($content);
+    $dom->loadXML( $content );
     libxml_clear_errors();
     libxml_use_internal_errors($previous_value);
-    foreach($dom->getElementsByTagName('img') as $image) { 
-      $image->setAttribute('class', $image->getAttribute('class') . ' ' . esc_attr( $class ));
+    foreach( $dom->getElementsByTagName( 'img' ) as $image ) { 
+      $image->setAttribute( 'class', $image->getAttribute( 'class' ) . ' ' . esc_attr( $class ) );
       if( $data ) { 
         $data = explode( '|', $data );
         foreach( $data as $d ):
-          $d = explode(',',$d);    
-          $image->setAttribute('data-'.$d[0],trim($d[1]));
+          $d = explode( ',', $d );    
+          $image->setAttribute( 'data-'.$d[0], trim( $d[1] ) );
         endforeach;
       }
     } 
@@ -1818,18 +1817,19 @@ function bs_popover( $atts, $content = null ) {
 
     $previous_value = libxml_use_internal_errors(TRUE);
     $dom = new DOMDocument;
-    $dom->loadXML($content);
+    $dom->loadXML( $content );
     libxml_clear_errors();
-    libxml_use_internal_errors($previous_value);    if( ! $dom->documentElement ) {
-        $element = $dom->createElement('div', $content);
+    libxml_use_internal_errors( $previous_value );
+    if( ! $dom->documentElement ) {
+        $element = $dom->createElement( 'div', $content );
         $dom->appendChild($element);
     }
     $dom->documentElement->setAttribute('class', $dom->documentElement->getAttribute('class') . ' ' . esc_attr( $class ));
     if( $data ) {
       $data = explode( '|', $data );
       foreach( $data as $d ):
-        $d = explode(',',$d);    
-        $dom->documentElement->setAttribute('data-'.$d[0],trim($d[1]));
+        $d = explode( ',', $d );    
+        $dom->documentElement->setAttribute( 'data-'.$d[0], trim( $d[1] ) );
       endforeach;
     }
     $return = $dom->saveXML();
@@ -1899,7 +1899,7 @@ function bs_popover( $atts, $content = null ) {
     $a_class  = '';      
     $a_class .= ( $xclass )   ? ' ' . $xclass : '';
       
-    $div_class = 'modal fade';
+    $div_class  = 'modal fade';
     $div_class .= ( $size ) ? ' bs-modal-' . $size : '';
       
     $id = 'custom-modal-' . sanitize_title( $title );
