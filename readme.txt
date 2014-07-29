@@ -3,7 +3,7 @@ Contributors: filipstefansson, nodley, FoolsRun
 Tags: bootstrap, shortcode, shortcodes, responsive, grid
 Requires at least: 3.8
 Tested up to: 3.9
-Stable tag: 3.2.1
+Stable tag: 3.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,12 +72,13 @@ No, we assume you are already working with a WordPress theme that includes the B
 == Changelog ==
 
 = 3.2 =
-* ####New Features:
+New Features
 * This release features a brand new, much easier to use popup for the documentation. We're now using Bootstrap's "modal" component rather than the soon-to-be-retired WordPress Thickbox. We've also split the documentation up into tabs so that the technical information about the plugin isn't cluttering up the shortcode reference material. This should make the plugin a little less scary for end-users.
 * Added optional "target" parameter to [list-group-item]
 * Added support for new "block", "inline", and "inline-block" parameters in [responsive] introduced in Bootstrap 3.2
 * Remove legacy [icon-white] shortcode (it wasn't documented anyway)
-* ####Bug Fixes
+
+Bug Fixes
 * Fixed issue with [carousel] indicators (thanks, mebdev!)
 * Fix any parameters expecting "true", or "false" accepting any input as "true". Now only accepts the word "true"; other input will be ignored and read as "false".
 * Fix bug that prevented CSS classes from being applied to [dropdown-item]s

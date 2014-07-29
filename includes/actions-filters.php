@@ -3,6 +3,14 @@
 /*  Include the styling for the help tab in the admin
 */
 
+function bootstrap_shortcodes_styles_all() {
+    wp_register_style( 'bootstrap-shortcodes-help-all', plugins_url( 'bootstrap-3-shortcodes/includes/help/css/bootstrap-shortcodes-help-all.css' ) );
+    wp_enqueue_style( 'bootstrap-shortcodes-help-all' );
+}
+
+add_action( 'admin_enqueue_scripts', 'bootstrap_shortcodes_styles_all' );
+
+
 function bootstrap_shortcodes_help_styles() {
   wp_register_style( 'bs-font', plugins_url( 'bootstrap-3-shortcodes/includes/help/bs-font.css' ) );
   wp_register_style( 'bootstrap-shortcodes-help', plugins_url( 'bootstrap-3-shortcodes/includes/help/css/bootstrap-shortcodes-help.css' ) );
@@ -14,7 +22,7 @@ function bootstrap_shortcodes_help_styles() {
   wp_enqueue_script( 'bootstrap' );
 
 }
-add_action( 'admin_enqueue_scripts', 'bootstrap_shortcodes_help_styles' );
+add_action( 'media_buttons', 'bootstrap_shortcodes_help_styles' );
 
 add_filter('the_content', 'bs_fix_shortcodes');
 
