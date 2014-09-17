@@ -37,7 +37,7 @@ function add_bootstrap_button() {
 
   //append the icon
  printf(
-    '<a data-toggle="modal" data-target="#bootstrap-shortcodes-help" title="%2$s" href="%3$s" class="%4$s" style="padding-left: 0px; padding-right: 0px;"><span class="bs_bootstrap-logo wp-media-buttons-icon"></span></a>',
+    '<a data-toggle="modal" data-target="#bootstrap-shortcodes-help" title="%2$s" href="%3$s" class="%4$s"><span class="bs_bootstrap-logo wp-media-buttons-icon"></span></a>',
     esc_attr( $popup_id ),
     esc_attr( $title ),
     esc_url( '#' ),
@@ -56,3 +56,26 @@ function boostrap_shortcodes_help() {
     include('bootstrap-shortcodes-help.php');
 }
 add_action( 'admin_footer', 'boostrap_shortcodes_help' );
+
+// Add the Bootstrap Shortcodes button to Distraction Free Writing mode 
+function bs_fullscreenbuttons($buttons) {
+	
+	$buttons[] = 'separator';
+	
+	$buttons['bootstrap-shortcodes'] = array(
+		'title' => __('Boostrap 3 Shortcodes Help'),
+		'onclick' => "jQuery('#bootstrap-shortcodes-help').modal('show');",
+		'both' => false 
+	);
+	
+	return $buttons;
+}
+add_action ('wp_fullscreen_buttons', 'bs_fullscreenbuttons');
+
+add_filter("gform_noconflict_styles", "bs_register_script");
+function bs_register_script($scripts){
+
+    //registering my script with Gravity Forms so that it gets enqueued when running on no-conflict mode
+    $scripts[] = "bootstrap-shortcodes-help-all";
+    return $scripts;
+}
