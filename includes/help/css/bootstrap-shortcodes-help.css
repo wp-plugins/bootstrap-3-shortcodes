@@ -1,3 +1,26 @@
+/* Fix for WPEngine's stylesheets */
+#bootstrap-shortcodes-help.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500000;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  background-color: transparent;
+  width: auto;
+  margin: 0 auto;
+
+}
+#bootstrap-shortcodes-help .modal-body {
+    max-height: none;
+}
+/* END Fix for WPEngine's stylesheets */
+
 #bootstrap-shortcodes-help h1,
 #bootstrap-shortcodes-help h1+p {
     display: none;
@@ -20,6 +43,19 @@
 .sticky-menu #TB_window {
     background-color: #fff;
 }
+
+.bootstrap-shortcodes-button {
+    padding-left: auto !important;
+    padding-right: 8px !important;
+}
+
+@media (min-width: 782px) {
+    .bootstrap-shortcodes-button {
+        padding-left: 0px !important; 
+        padding-right: 0px !important;
+    }
+}
+
 
 /* CSS crunched with Crunch - http://crunchapp.net/ */
 #bootstrap-shortcodes-help {
